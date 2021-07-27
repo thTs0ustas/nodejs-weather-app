@@ -1,8 +1,8 @@
 console.log('Client side javascript file is loaded!');
 
 const fetchWeather = ({ location, country }) =>
-  fetch(`http://localhost:3000/weather?location=${location}&country=${country}`).then(
-    (response) => response.json(),
+  fetch(`/weather?location=${location}&country=${country}`).then((response) =>
+    response.json(),
   );
 
 const submit = document.querySelector('form');
