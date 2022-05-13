@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const { geocode } = require('./weatherApp/geocode');
-const forecast = require('./weatherApp/forecast');
+const forecast = require( './weatherApp/forecast');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     name: 'Thanos',
   });
 });
+
 
 app.get('/about', (req, res) => {
   res.render('about', {
@@ -43,7 +44,7 @@ app.get('/weather', (req, res) => {
   geocode(
     { address: req.query.location, country: req.query.country },
     (error, { lon, lat, local } = {}) => {
-      console.log({ lon, lat, local });
+   
       if (error) return res.send({ error });
 
       forecast({ lon, lat }, (error, { temp, feels_like } = {}) => {
